@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --bgcolor: #ddd;
+            --bgcolorheader: #333;
+            --textcolor: gold;
+            --bgcolorcart: rgba(255, 255, 255, 0.6);
+            --shadownbutton: rgba(0, 0, 0, 0.3);
+            --bgcolormodul: rgba(255, 255, 255, 0.918);
+        }
+        @font-face {
+            font-family: segoeprint;
+            src: url("segoepr.ttf");
+        }
+        @font-face {
+            font-family:estedad;
+            src: url("Estedad-Regular.ttf");
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            font-family:segoeprint,estedad;
+        }
+        body {
+            background-color: var(--bgcolor);
+        }
+
+       
+
+        .container {
+            height: 100vh;
+
+            margin: auto;
+            width: 70vw;
+        }
+
+        table {
+            text-align: center;
+            width: 90%;
+        }
+
+        header {
+            margin-top: 0.5rem;
+            border-radius: 3px 3px 0 0;
+            height: 70px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bgcolorheader);
+            text-align: center;
+            color: var(--textcolor);
+            font-size: 2em;
+        }
+
+        .menuone,
+        .menutwo {
+            width: 50%;
+            transition: all 0.3s;
+        }
+
+        .menuone:hover {
+            background-color: var(--textcolor);
+            color: var(--bgcolorheader);
+            border-radius: 3px 3px 3px 0;
+            width: 49%;
+            cursor: pointer;
+        }
+
+        .menutwo:hover {
+            width: 49%;
+            background-color: var(--textcolor);
+            color: var(--bgcolorheader);
+            border-radius: 3px 3px 0px 3px;
+            padding: 2px 0;
+            cursor: pointer;
+        }
+
+        .content {
+            border-radius: 0px 0px 3px 3px;
+            background-color: var(--bgcolorcart);
+            font-size: 1.5em;
+            padding-top: 1rem;
+            width: 100%;
+        }
+
+        button {
+            cursor: pointer;
+            width: 200px;
+            margin: 1rem 1rem;
+            border: none;
+            background-color: var(--textcolor);
+            border-radius: 8px;
+            height: 2.5rem;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            box-shadow: 0px 0px 3px var(--shadownbutton), 0px 0px 6px var(--shadownbutton);
+        }
+
+        .modul {
+            transition: all 2s;
+            width: 35%;
+            height: 50%;
+            background-color: var(--bgcolormodul);
+            box-shadow: 0px 0px 3px var(--shadownbutton), 0px 0px 6px var(--shadownbutton);
+            border-radius: 15px;
+            position: absolute;
+            top: 20%;
+            left: 32.5%;
+            text-align: center;
+            display: none;
+        }
+
+        h1 {
+            padding-top: 1rem;
+        }
+
+        input {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .info {
+            font-size: 1.2rem;
+        }
+
+        .send {
+            margin-top: 3rem;
+        }
+
+        @media (max-width:700px) {
+
+            .menuone,
+            .menutwo {
+                font-size: 0.8em;
+                ;
+            }
+
+            body {
+                font-size: 0.8em;
+            }
+        }
+
+        @media(max-width:550px) {
+            .container {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .content {
+
+                font-size: 0.8em;
+                height: 20%;
+                width: 100%;
+            }
+
+            button {
+                width: 20%;
+            }
+
+            header {
+                width: 100%;
+            }
+
+            table {
+                width: 90%;
+            }
+
+            .modul {
+                left: 5%;
+                width: 90%;
+
+            }
+
+            .info {
+                font-size: 0.8em;
+
+            }
+
+            .send {
+                margin: 1rem;
+            }
+        }
+
+        .eror {
+            position: absolute;
+            width: 50%;
+            height: 10%;
+            background-color: var(--bgcolorcart);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--bgcolorheader);
+            border-radius: 8px;
+            text-shadow: 0px 0px 1px red;
+            left: 25%;
+            top: 45%;
+            display: none;
+        }
+
+        .peror {
+            margin-top: 2%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <div class="menuone">content</div>
+            <div class="menutwo">About Me</div>
+        </header>
+
+        <div class="content">
+            <table id="tabel1">
+                <tr>
+                    <th>name</th>
+                    <th>phone</th>
+                    <th>age</th>
+                </tr>
+            </table>
+            <button onclick="showmodul()">Add+</button>
+        </div>
+
+    </div>
+    <div id="modul" class="modul">
+        <h1>Add user</h1>
+        <div class="info">
+            <label for="name">enter youre firstName :</label>
+            <input type="text" id="name" name="" class="" value="" />
+        </div>
+
+        <div class="info">
+            <label for="phone">enter youre phonNumber :</label>
+            <input type="text" id="phone" name="phone" class="" value="" />
+        </div>
+
+        <div class="info">
+            <label for="age">enter youre age :</label>
+            <input type="text" id="age" name="age" class="" value="" />
+        </div>
+
+        <button onclick="save()" type="reset" class="send">save</button>
+        <button onclick="closes()" class="send close">close</button>
+
+    </div>
+    <div id="eror" class="eror">
+        <p class="peror"> ! فیلد هارا به درستی پر کنید</p>
+    </div>
+    <script>
+        let eror = document.getElementById('eror');
+        let show = document.getElementById('modul');
+        let tabel = document.getElementById('tabel1');
+
+
+        let user = [
+            { name: "Hasan", age: "19", phone: "09160269614" },
+            { name: "Reza", age: "25", phone: "09121458989" },
+            { name: "Mohammad", age: "22", phone: "09131237898" },
+        ];
+        let copy = user;
+
+        for (i = 0; i < user.length; i++) {
+            let tr = document.createElement('tr');
+            tabel.append(tr);
+
+            let nameuser = document.createElement('td');
+            let ageuser = document.createElement('td');
+            let phoneuser = document.createElement('td');
+
+            nameuser.innerHTML = user[i].name;
+            ageuser.innerHTML = user[i].age;
+            phoneuser.innerHTML = user[i].phone;
+
+            creatnewuser(user, nameuser, ageuser, phoneuser);
+        }
+
+        function creatnewuser(arry, name, age, phone) {
+            arry.forEach(function () {
+                tabel.append(name);
+                tabel.append(phone);
+                tabel.append(age);
+            });
+        };
+        function showmodul() {
+            show.style.display = 'block';
+        }
+        function closes() {
+            show.style.display = 'none';
+        }
+        function save() {
+            tabel.innerHTML = "";
+
+            show.style.display = 'none';
+            let namenewuser = document.getElementById('name').value;
+            let phonenewuser = document.getElementById('phone').value;
+            let agenewuser = document.getElementById('age').value;
+
+            if (namenewuser == "" || phonenewuser == "" || agenewuser == "") {
+                eror.style.display = 'block';
+                setInterval(function () {
+                    eror.style.display = 'none';
+                }, 1000);
+            }
+            else {
+                let newuser = {
+                    name: namenewuser,
+                    phone: phonenewuser,
+                    age: agenewuser
+                };
+
+                user.push(newuser);
+
+                for (i = 0; i < copy.length; i++) {
+                    let tr = document.createElement('tr');
+                    tabel.append(tr);
+
+                    let nameuser = document.createElement('td');
+                    let ageuser = document.createElement('td');
+                    let phoneuser = document.createElement('td');
+
+                    nameuser.innerHTML = user[i].name;
+                    ageuser.innerHTML = user[i].age;
+                    phoneuser.innerHTML = user[i].phone;
+
+                    creatnewuser(user, nameuser, ageuser, phoneuser);
+
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
